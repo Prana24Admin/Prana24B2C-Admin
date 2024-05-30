@@ -1,5 +1,5 @@
-import BreadCrumb from "../../../components/BreadCrumb";
-import Table from "../../../components/table/Index";
+import BreadCrumb from "../../../../components/BreadCrumb";
+import Table from "../../../../components/table/Index";
 import Link from "next/link";
 
 const API_URL =
@@ -9,26 +9,16 @@ const Index = () => {
   const columns = [
     { dataField: "serial_number", text: "S.N." },
     {
-      dataField: "uuid",
-      text: "Id",
+      dataField: "name",
+      text: "Name",
     },
     {
-      dataField: "first_name",
-      text: "First Name",
-    },
-    {
-      dataField: "title",
-      text: "Title",
-    },
-    {
-      dataField: "createdAt",
-      text: "Created At",
-      type: "datetime",
+      dataField: "status",
+      text: "Status",
     },
     {
       dataField: "updatedAt",
-      text: "Updated At",
-      type: "datetime",
+      text: "Last Update",
     },
     {
       dataField: null,
@@ -36,7 +26,7 @@ const Index = () => {
       type: "render",
       render: (item) => (
         <div>
-          <Link href={`/a/doctors/${item.uuid}`}>
+          <Link href={`/a/doctors/appointments/${item.id}`}>
             <a className="btn btn-dark btn-sm">View Details</a>
           </Link>
           {/* <a
@@ -52,13 +42,13 @@ const Index = () => {
   ];
 
   const buttons = [
-    {
-      text: "Add Doctor",
-      url: "/a/doctors/create",
-      color: "dark",
-      type: "button",
-      size: "sm",
-    },
+    // {
+    //   text: "Add Doctor Appointment",
+    //   url: "/a/doctors/doctorAppointment/create",
+    //   color: "dark",
+    //   type: "button",
+    //   size: "sm",
+    // },
   ];
 
   return (
@@ -66,13 +56,13 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Doctors", url: "/a/doctors" },
+          { text: "Doctors appointment", url: "/a/doctors" },
         ]}
       />
 
       <Table
         columns={columns}
-        url="/doctor"
+        url="/doctor/department"
         buttons={buttons}
         title="Doctors"
       />

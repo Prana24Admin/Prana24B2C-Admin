@@ -44,6 +44,22 @@ const Sidebar = (props) => {
       ],
     },
     {
+      name: "Banners",
+      icon: "bx bx-category",
+      url: "",
+      show: false,
+      items: [
+        {
+          name: "Add Banners",
+          url: "/a/banners/create",
+        },
+        {
+          name: "Banners",
+          url: "/a/banners",
+        },
+      ],
+    },
+    {
       name: "Coupons",
       icon: "bx bxs-coupon",
       url: "",
@@ -95,13 +111,55 @@ const Sidebar = (props) => {
           name: "Doctors",
           url: "/a/doctors",
         },
+        {
+          name: "Doctor Approvals",
+          url: "/a/doctors/doctorApprovals",
+        },
+        {
+          name: "Doctor Dashboard",
+          url: "/a/doctors/doctorDashboard",
+        },
+        {
+          name: "Doctors Departments",
+          url: "/a/doctors/doctorDepartment",
+        },
+        {
+          name: "Doctors Appointments",
+          url: "/a/doctors/appointments",
+        },
       ],
     },
     {
-      name: "Appointments",
-      icon: "bx bx-calendar-check",
-      url: "/a/appointments",
+      name: "Hospitals",
+      icon: "bx bx-store",
+      url: "",
       show: false,
+      items: [
+        {
+          name: "Add Hospitals",
+          url: "/a/hospitals/create",
+        },
+        {
+          name: "All Hospitals",
+          url: "/a/hospitals",
+        },
+      ],
+    },
+    {
+      name: "Assistants",
+      icon: "bx bx-store",
+      url: "",
+      show: false,
+      items: [
+        {
+          name: "Add Assistants",
+          url: "/a/assistants/create",
+        },
+        {
+          name: "All Assistants",
+          url: "/a/assistants",
+        },
+      ],
     },
     {
       name: "Organizations",
@@ -163,6 +221,54 @@ const Sidebar = (props) => {
       url: "/a/users",
       show: false,
     },
+    {
+      name: "Order Reports",
+      icon: "bx bx-user",
+      url: "/a/orderReports",
+      show: false,
+    },
+    {
+      name: "Sales Reports",
+      icon: "bx bx-user",
+      url: "/a/salesReports",
+      show: false,
+    },
+    {
+      name: "Rental Info",
+      icon: "bx bx-user",
+      url: "/a/rentalInfo",
+      show: false,
+    },
+    // {
+    //   name: "Home Health Care",
+    //   icon: "bx bx-user",
+    //   url: "/a/homeHealthCare",
+    //   show: false,
+    // },
+    {
+      name: "Home Health Care",
+      icon: "bx bx-user-circle",
+      url: "",
+      show: false,
+      items: [
+        {
+          name: "Add HealthCare Categories",
+          url: "/a/homeHealthCare/addCategories",
+        },
+        {
+          name: "Add HealthCare subCategories",
+          url: "/a/homeHealthCare/addSubCategories",
+        },
+        {
+          name: "All Sub-Categories",
+          url: "/a/homeHealthCare/allSubCategories",
+        },
+        {
+          name: "Healthcare Reports",
+          url: "/a/homeHealthCare",
+        },
+      ],
+    },
   ]);
 
   const handleShow = (item) => {
@@ -188,7 +294,7 @@ const Sidebar = (props) => {
               </button>
             </div>
             <div className="d-flex justify-content-center mb-3">
-              <h5>PillBox</h5>
+              <h5>PRANA</h5>
             </div>
             {items.map((item, key) => (
               <div key={key} className="">

@@ -9,43 +9,30 @@ const Index = () => {
   const columns = [
     { dataField: "serial_number", text: "S.N." },
     {
-      dataField: "uuid",
-      text: "Id",
-    },
-    {
       dataField: "first_name",
-      text: "First Name",
+      text: "Name",
     },
     {
       dataField: "title",
-      text: "Title",
+      text: "Telephone Number",
     },
-    {
-      dataField: "createdAt",
-      text: "Created At",
-      type: "datetime",
-    },
-    {
-      dataField: "updatedAt",
-      text: "Updated At",
-      type: "datetime",
-    },
+
     {
       dataField: null,
       text: "Actions",
       type: "render",
       render: (item) => (
         <div>
-          <Link href={`/a/doctors/${item.uuid}`}>
+          <Link href={`/a/assistants/${item.id}`}>
             <a className="btn btn-dark btn-sm">View Details</a>
           </Link>
-          {/* <a
+          <a
             className="btn btn-dark btn-sm"
             style={{ marginLeft: "10px" }}
-            onClick={() => handleApprove(item.id)}
+            // onClick={() => handleApprove(item.id)}
           >
-            Approve
-          </a> */}
+            Delete
+          </a>
         </div>
       ),
     },
@@ -53,8 +40,8 @@ const Index = () => {
 
   const buttons = [
     {
-      text: "Add Doctor",
-      url: "/a/doctors/create",
+      text: "Add Assistant",
+      url: "/a/assistants/create",
       color: "dark",
       type: "button",
       size: "sm",
@@ -66,15 +53,15 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Doctors", url: "/a/doctors" },
+          { text: "Assistants", url: "/a/assistants" },
         ]}
       />
 
       <Table
         columns={columns}
-        url="/doctor"
+        url="/assistants"
         buttons={buttons}
-        title="Doctors"
+        title="Assistants"
       />
     </div>
   );
