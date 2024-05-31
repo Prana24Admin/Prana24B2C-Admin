@@ -10,27 +10,23 @@ const Index = () => {
     { dataField: "serial_number", text: "S.N." },
     {
       dataField: "name",
-      text: "Doctor Name",
+      text: "Review",
     },
     {
       dataField: "name",
-      text: "Clinic",
+      text: "Rate",
     },
     {
       dataField: "name",
-      text: "Patient Name",
+      text: "User",
     },
     {
       dataField: "name",
-      text: "Type",
+      text: "Doctor",
     },
     {
       dataField: "name",
-      text: "Address",
-    },
-    {
-      dataField: "status",
-      text: "Status",
+      text: "Updated At",
     },
     {
       dataField: null,
@@ -68,13 +64,13 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Doctors appointment", url: "/a/doctors" },
+          { text: "Doctor Reviews", url: "/a/doctors/reviews" },
         ]}
       />
 
       <Table
         columns={columns}
-        url="/doctor/department"
+        url="/doctor/reviews"
         buttons={buttons}
         title="Doctors"
       />

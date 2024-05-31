@@ -112,6 +112,10 @@ const Sidebar = (props) => {
           url: "/a/doctors",
         },
         {
+          name: "Doctors Reviews",
+          url: "/a/doctors/reviews",
+        },
+        {
           name: "Doctor Approvals",
           url: "/a/doctors/doctorApprovals",
         },
