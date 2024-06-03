@@ -45,7 +45,7 @@ const Sidebar = (props) => {
     },
     {
       name: "Banners",
-      icon: "bx bx-category",
+      icon: "bx bx-photo-album",
       url: "",
       show: false,
       items: [
@@ -93,7 +93,7 @@ const Sidebar = (props) => {
     },
     {
       name: "Orders",
-      icon: "bx bx-shopping-bag",
+      icon: "bx bx-plus-medical",
       url: "/a/orders",
       show: false,
     },
@@ -106,6 +106,10 @@ const Sidebar = (props) => {
         {
           name: "Add Doctor",
           url: "/a/doctors/create",
+        },
+        {
+          name: "Symptoms",
+          url: "/a/doctors/symptoms",
         },
         {
           name: "Doctors",
@@ -135,7 +139,7 @@ const Sidebar = (props) => {
     },
     {
       name: "Hospitals",
-      icon: "bx bx-store",
+      icon: "bx bx-plus-medical",
       url: "",
       show: false,
       items: [
@@ -151,7 +155,7 @@ const Sidebar = (props) => {
     },
     {
       name: "Assistants",
-      icon: "bx bx-store",
+      icon: "bx bx-group",
       url: "",
       show: false,
       items: [
@@ -167,7 +171,7 @@ const Sidebar = (props) => {
     },
     {
       name: "Organizations",
-      icon: "bx bx-store",
+      icon: "bx bx-buildings",
       url: "",
       show: false,
       items: [
@@ -183,42 +187,90 @@ const Sidebar = (props) => {
     },
     {
       name: "Lab",
-      icon: "bx bx-buildings",
-      url: "",
-      show: false,
-      items: [
-        {
-          name: "Add Lab",
-          url: "/a/labs/create",
-        },
-        {
-          name: "Lab",
-          url: "/a/labs",
-        },
-      ],
-    },
-    {
-      name: "Tests",
       icon: "bx bx-test-tube",
       url: "",
       show: false,
       items: [
         {
-          name: "Add Test",
-          url: "/a/tests/create",
+          name: "Lab Dashboard",
+          url: "/a/labs/dashboard",
+        },
+        {
+          name: "Lab",
+          url: "/a/labs",
+        },
+        {
+          name: "Lab Packages",
+          url: "/a/labPackages",
         },
         {
           name: "Tests",
           url: "/a/tests",
         },
+        {
+          name: "Bookings",
+          url: "/a/labbookings",
+        },
+        {
+          name: "Home Lab Bookings",
+          url: "/a/labbookings/homeLabBookings",
+        },
       ],
     },
-    {
-      name: "Lab Bookings",
-      icon: "bx bx-calendar-check",
-      url: "/a/labbookings",
-      show: false,
-    },
+    // {
+    //   name: "Lab Packages",
+    //   icon: "bx bx-package",
+    //   url: "",
+    //   show: false,
+    //   items: [
+    //     {
+    //       name: "Add Lab Packages",
+    //       url: "/a/labPackages/create",
+    //     },
+    //     {
+    //       name: "Lab Packages",
+    //       url: "/a/labPackages",
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: "Tests",
+    //   icon: "bx bx-test-tube",
+    //   url: "",
+    //   show: false,
+    //   items: [
+    //     {
+    //       name: "Add Test",
+    //       url: "/a/tests/create",
+    //     },
+    //     {
+    //       name: "Tests",
+    //       url: "/a/tests",
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: "Lab Bookings",
+    //   icon: "bx bx-test-tube",
+    //   url: "",
+    //   show: false,
+    //   items: [
+    //     {
+    //       name: "Bookings",
+    //       url: "/a/labbookings",
+    //     },
+    //     {
+    //       name: "Home Lab Bookings",
+    //       url: "/a/labbookings/homeLabBookings",
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: "Lab Bookings",
+    //   icon: "bx bx-calendar-check",
+    //   url: "/a/labbookings",
+    //   show: false,
+    // },
     {
       name: "Users",
       icon: "bx bx-user",
@@ -227,19 +279,19 @@ const Sidebar = (props) => {
     },
     {
       name: "Order Reports",
-      icon: "bx bx-user",
+      icon: "bx bx-file-blank",
       url: "/a/orderReports",
       show: false,
     },
     {
       name: "Sales Reports",
-      icon: "bx bx-user",
+      icon: "bx bx-file-blank",
       url: "/a/salesReports",
       show: false,
     },
     {
       name: "Rental Info",
-      icon: "bx bx-user",
+      icon: "bx bx-info-circle",
       url: "/a/rentalInfo",
       show: false,
     },
@@ -251,7 +303,7 @@ const Sidebar = (props) => {
     // },
     {
       name: "Home Health Care",
-      icon: "bx bx-user-circle",
+      icon: "bx bx-home",
       url: "",
       show: false,
       items: [
@@ -272,6 +324,84 @@ const Sidebar = (props) => {
           url: "/a/homeHealthCare",
         },
       ],
+    },
+    {
+      name: "Payments",
+      icon: "bx bx-money-withdraw",
+      url: "",
+      show: false,
+      items: [
+        {
+          name: "Payments List",
+          url: "/a/payments/list",
+        },
+        {
+          name: "Payments Method",
+          url: "/a/payments/method",
+        },
+        {
+          name: "Payments Statuses",
+          url: "/a/payments/statuses",
+        },
+        {
+          name: "Clinic Payouts",
+          url: "/a/payments/clinicPayouts",
+        },
+      ],
+    },
+    {
+      name: "Wallet",
+      icon: "bx bx-wallet",
+      url: "",
+      show: false,
+      items: [
+        {
+          name: "Wallet List",
+          url: "/a/wallet/list",
+        },
+        {
+          name: "Wallet Transactions",
+          url: "/a/wallet/transactions",
+        },
+      ],
+    },
+    {
+      name: "FAQS",
+      icon: "bx bx-question-mark",
+      url: "",
+      show: false,
+      items: [
+        {
+          name: "FAQS",
+          url: "/a/faqs/faqs",
+        },
+        {
+          name: "FAQS Specialties",
+          url: "/a/faqs/faqSpecialties",
+        },
+      ],
+    },
+    {
+      name: "Notification",
+      icon: "bx bx-bell",
+      url: "",
+      show: false,
+      items: [
+        {
+          name: "Notify Users",
+          url: "/a/notifications/users/create",
+        },
+        {
+          name: "Notify Doctors",
+          url: "/a/notifications/doctors/create",
+        },
+      ],
+    },
+    {
+      name: "Earnings",
+      icon: "bx bx-user",
+      url: "/a/earnings",
+      show: false,
     },
   ]);
 

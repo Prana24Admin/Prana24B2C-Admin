@@ -2,27 +2,31 @@ import BreadCrumb from "../../../../components/BreadCrumb";
 import Table from "../../../../components/table/Index";
 import Link from "next/link";
 
-const API_URL =
-  process.env.NEXT_PUBLIC_PROD_API_URL || "http://localhost:4000/api/v1";
-
 const Index = () => {
   const columns = [
-    { dataField: "serial_number", text: "S.N." },
     {
-      dataField: "name",
-      text: "Name",
+      dataField: "serial_number",
+      text: "S.N.",
     },
+
+    { dataField: "lab_order_id", text: "Order ID" },
+    { dataField: "lab_order_id", text: "Clinic Name" },
+    { dataField: "total_amount", text: "Phone Number" },
+    { dataField: "total_amount", text: "Address" },
     {
-      dataField: "name",
-      text: "Description",
-    },
-    {
-      dataField: "status",
-      text: "Status",
+      dataField: "createdAt",
+      text: "Visit Date",
+      type: "datetime",
     },
     {
       dataField: "updatedAt",
-      text: "Last Update",
+      text: "Viewed",
+      type: "datetime",
+    },
+    {
+      dataField: "updatedAt",
+      text: "Status",
+      type: "datetime",
     },
     {
       dataField: null,
@@ -30,16 +34,9 @@ const Index = () => {
       type: "render",
       render: (item) => (
         <div>
-          <Link href={`/a/doctors/${item.uuid}`}>
+          <Link href={`/a/labbookings/${item.uuid}`}>
             <a className="btn btn-dark btn-sm">View Details</a>
           </Link>
-          {/* <a
-            className="btn btn-dark btn-sm"
-            style={{ marginLeft: "10px" }}
-            onClick={() => handleApprove(item.id)}
-          >
-            Approve
-          </a> */}
         </div>
       ),
     },
@@ -47,8 +44,8 @@ const Index = () => {
 
   const buttons = [
     {
-      text: "Add Doctor Department",
-      url: "/a/doctors/doctorDepartment/create",
+      text: "Add Home Lab Booking",
+      url: "/a/labbookings/homeLabBookings/create",
       color: "dark",
       type: "button",
       size: "sm",
@@ -60,15 +57,15 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Doctors Department", url: "/a/doctors" },
+          { text: "Lab Bookings", url: "/a/labbookings" },
         ]}
       />
 
       <Table
         columns={columns}
-        url="/doctor/department"
+        url="/orders/laborders/admin"
         buttons={buttons}
-        title="Doctors"
+        title="Lab Bookings"
       />
     </div>
   );

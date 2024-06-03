@@ -7,9 +7,9 @@ const API_URL =
 
 const Index = () => {
   const columns = [
-    { dataField: "serial_number", text: "S.N." },
+    { dataField: "amount", text: "Logo" },
     {
-      dataField: "name",
+      dataField: "description",
       text: "Name",
     },
     {
@@ -17,12 +17,24 @@ const Index = () => {
       text: "Description",
     },
     {
-      dataField: "status",
-      text: "Status",
+      dataField: "name",
+      text: "Route name",
     },
     {
-      dataField: "updatedAt",
-      text: "Last Update",
+      dataField: "name",
+      text: "Order",
+    },
+    {
+      dataField: "name",
+      text: "Is Default?",
+    },
+    {
+      dataField: "name",
+      text: "Enabled",
+    },
+    {
+      dataField: "name",
+      text: "Updated At",
     },
     {
       dataField: null,
@@ -30,16 +42,16 @@ const Index = () => {
       type: "render",
       render: (item) => (
         <div>
-          <Link href={`/a/doctors/${item.uuid}`}>
+          <Link href={`/a/paymentsList/${item.uuid}`}>
             <a className="btn btn-dark btn-sm">View Details</a>
           </Link>
           {/* <a
-            className="btn btn-dark btn-sm"
-            style={{ marginLeft: "10px" }}
-            onClick={() => handleApprove(item.id)}
-          >
-            Approve
-          </a> */}
+              className="btn btn-dark btn-sm"
+              style={{ marginLeft: "10px" }}
+              onClick={() => handleApprove(item.id)}
+            >
+              Approve
+            </a> */}
         </div>
       ),
     },
@@ -47,8 +59,8 @@ const Index = () => {
 
   const buttons = [
     {
-      text: "Add Doctor Department",
-      url: "/a/doctors/doctorDepartment/create",
+      text: "Add Payment Method",
+      url: "/a/payments/method/create",
       color: "dark",
       type: "button",
       size: "sm",
@@ -60,15 +72,15 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Doctors Department", url: "/a/doctors" },
+          { text: "Payments Method", url: "/a/payments/method" },
         ]}
       />
 
       <Table
         columns={columns}
-        url="/doctor/department"
+        url="/paymentsMethod"
         buttons={buttons}
-        title="Doctors"
+        title="paymentsMethod"
       />
     </div>
   );

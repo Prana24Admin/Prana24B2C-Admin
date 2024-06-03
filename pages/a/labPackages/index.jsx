@@ -4,21 +4,28 @@ import Link from "next/link";
 
 const Index = () => {
   const columns = [
+    { dataField: "serial_number", text: "ID" },
     {
-      dataField: "serial_number",
-      text: "S.N.",
+      dataField: "uuid",
+      text: "Name",
+    },
+    {
+      dataField: "name",
+      text: "Name",
     },
 
-    { dataField: "lab_order_id", text: "Order ID" },
-    { dataField: "total_amount", text: "Total Amount" },
     {
       dataField: "createdAt",
-      text: "Created At",
+      text: "Shot Cut",
+    },
+    {
+      dataField: "updatedAt",
+      text: "Sample Type",
       type: "datetime",
     },
     {
       dataField: "updatedAt",
-      text: "Updated At",
+      text: "Price",
       type: "datetime",
     },
     {
@@ -27,7 +34,7 @@ const Index = () => {
       type: "render",
       render: (item) => (
         <div>
-          <Link href={`/a/labbookings/${item.uuid}`}>
+          <Link href={`/a/labs/${item.uuid}`}>
             <a className="btn btn-dark btn-sm">View Details</a>
           </Link>
         </div>
@@ -37,8 +44,8 @@ const Index = () => {
 
   const buttons = [
     {
-      text: "Add Lab Booking",
-      url: "/a/labbookings/create",
+      text: "Add Lab Package",
+      url: "/a/labPackages/create",
       color: "dark",
       type: "button",
       size: "sm",
@@ -50,16 +57,11 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Lab Bookings", url: "/a/labbookings" },
+          { text: "Labs", url: "/a/labs" },
         ]}
       />
 
-      <Table
-        columns={columns}
-        url="/orders/laborders/admin"
-        buttons={buttons}
-        title="Lab Bookings"
-      />
+      <Table columns={columns} url="/lab" buttons={buttons} title="Labs" />
     </div>
   );
 };

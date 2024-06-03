@@ -47,8 +47,8 @@ const Index = () => {
 
   const buttons = [
     {
-      text: "Add Doctor Department",
-      url: "/a/doctors/doctorDepartment/create",
+      text: "Add Doctor Symptoms",
+      url: "/a/doctors/symptoms/create",
       color: "dark",
       type: "button",
       size: "sm",
@@ -60,13 +60,13 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Doctors Department", url: "/a/doctors" },
+          { text: "Doctor Symptoms", url: "/a/doctors" },
         ]}
       />
 
       <Table
         columns={columns}
-        url="/doctor/department"
+        url="/doctor/symptoms"
         buttons={buttons}
         title="Doctors"
       />

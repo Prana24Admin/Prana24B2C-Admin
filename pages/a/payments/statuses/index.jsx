@@ -7,22 +7,17 @@ const API_URL =
 
 const Index = () => {
   const columns = [
-    { dataField: "serial_number", text: "S.N." },
     {
-      dataField: "name",
-      text: "Name",
-    },
-    {
-      dataField: "name",
-      text: "Description",
-    },
-    {
-      dataField: "status",
+      dataField: "description",
       text: "Status",
     },
     {
-      dataField: "updatedAt",
-      text: "Last Update",
+      dataField: "name",
+      text: "Order",
+    },
+    {
+      dataField: "name",
+      text: "Updated At",
     },
     {
       dataField: null,
@@ -30,29 +25,29 @@ const Index = () => {
       type: "render",
       render: (item) => (
         <div>
-          <Link href={`/a/doctors/${item.uuid}`}>
+          <Link href={`/a/paymentsStatuses/${item.uuid}`}>
             <a className="btn btn-dark btn-sm">View Details</a>
           </Link>
           {/* <a
-            className="btn btn-dark btn-sm"
-            style={{ marginLeft: "10px" }}
-            onClick={() => handleApprove(item.id)}
-          >
-            Approve
-          </a> */}
+              className="btn btn-dark btn-sm"
+              style={{ marginLeft: "10px" }}
+              onClick={() => handleApprove(item.id)}
+            >
+              Approve
+            </a> */}
         </div>
       ),
     },
   ];
 
   const buttons = [
-    {
-      text: "Add Doctor Department",
-      url: "/a/doctors/doctorDepartment/create",
-      color: "dark",
-      type: "button",
-      size: "sm",
-    },
+    // {
+    //   text: "Add Doctor Appointment",
+    //   url: "/a/doctors/doctorAppointment/create",
+    //   color: "dark",
+    //   type: "button",
+    //   size: "sm",
+    // },
   ];
 
   return (
@@ -60,15 +55,15 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Doctors Department", url: "/a/doctors" },
+          { text: "Payments Statuses", url: "/a/payments/statuses" },
         ]}
       />
 
       <Table
         columns={columns}
-        url="/doctor/department"
+        url="/paymentsStatuses"
         buttons={buttons}
-        title="Doctors"
+        title="paymentsStatuses"
       />
     </div>
   );

@@ -13,16 +13,8 @@ const Index = () => {
       text: "Name",
     },
     {
-      dataField: "name",
-      text: "Description",
-    },
-    {
-      dataField: "status",
-      text: "Status",
-    },
-    {
       dataField: "updatedAt",
-      text: "Last Update",
+      text: "Updated At",
     },
     {
       dataField: null,
@@ -47,8 +39,8 @@ const Index = () => {
 
   const buttons = [
     {
-      text: "Add Doctor Department",
-      url: "/a/doctors/doctorDepartment/create",
+      text: "Add FAQS",
+      url: "/a/faqs/faqSpecialties/create",
       color: "dark",
       type: "button",
       size: "sm",
@@ -60,16 +52,11 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Doctors Department", url: "/a/doctors" },
+          { text: "Faqs", url: "/a/faqs" },
         ]}
       />
 
-      <Table
-        columns={columns}
-        url="/doctor/department"
-        buttons={buttons}
-        title="Doctors"
-      />
+      <Table columns={columns} url="/faqs" buttons={buttons} title="Doctors" />
     </div>
   );
 };

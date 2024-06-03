@@ -7,22 +7,18 @@ const API_URL =
 
 const Index = () => {
   const columns = [
-    { dataField: "serial_number", text: "S.N." },
+    { dataField: "serial_number", text: "Question" },
     {
       dataField: "name",
-      text: "Name",
-    },
-    {
-      dataField: "name",
-      text: "Description",
-    },
-    {
-      dataField: "status",
-      text: "Status",
+      text: "Answer",
     },
     {
       dataField: "updatedAt",
-      text: "Last Update",
+      text: "Faq Category",
+    },
+    {
+      dataField: "updatedAt",
+      text: "Updated At",
     },
     {
       dataField: null,
@@ -47,8 +43,8 @@ const Index = () => {
 
   const buttons = [
     {
-      text: "Add Doctor Department",
-      url: "/a/doctors/doctorDepartment/create",
+      text: "Add FAQS",
+      url: "/a/faqs/faqs/create",
       color: "dark",
       type: "button",
       size: "sm",
@@ -60,16 +56,11 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Doctors Department", url: "/a/doctors" },
+          { text: "Faqs", url: "/a/faqs" },
         ]}
       />
 
-      <Table
-        columns={columns}
-        url="/doctor/department"
-        buttons={buttons}
-        title="Doctors"
-      />
+      <Table columns={columns} url="/faqs" buttons={buttons} title="Doctors" />
     </div>
   );
 };
