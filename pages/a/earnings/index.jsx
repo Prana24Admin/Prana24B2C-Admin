@@ -3,7 +3,7 @@ import Table from "../../../components/table/Index";
 import Link from "next/link";
 
 const API_URL =
-  process.env.NEXT_PUBLIC_PROD_API_URL || "http://localhost:4000/api/v1";
+  process.env.NEXT_PUBLIC_PROD_API_URL || "https://api-prana.prana24.in";
 
 const Index = () => {
   const columns = [
