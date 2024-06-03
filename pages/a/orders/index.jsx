@@ -6,7 +6,7 @@ import Form from "../../../components/form/update";
 import * as Yup from "yup";
 
 const API_URL =
-  process.env.NEXT_PUBLIC_PROD_API_URL || "https://api-prana.prana24.in";
+  process.env.NEXT_PUBLIC_PROD_API_URL || "https://api-prana.prana24.in/api";
 
 const Index = () => {
   const [orderStatus, setOrderStatus] = useState("asll"); // State to manage order status
