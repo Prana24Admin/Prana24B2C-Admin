@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import * as Yup from "yup";
-import BreadCrumb from "../../../components/BreadCrumb";
-import Form from "../../../components/form/update";
+import BreadCrumb from "../../../../components/BreadCrumb";
+import Form from "../../../../components/form/update";
 
 const Doctor = () => {
   const router = useRouter();
