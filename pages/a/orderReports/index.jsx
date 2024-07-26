@@ -7,8 +7,7 @@ import * as XLSX from "xlsx";
 const Index = () => {
   const columns = [
     { dataField: "serial_number", text: "S.N." },
-    { dataField: "Shop_id", text: "Shop ID" },
-    { dataField: "Shop_Name", text: "Shop Name" },
+    { dataField: "User_Name", text: "User Name" },
     { dataField: "Phone_Number", text: "Phone Number" },
     { dataField: "Address", text: "Address" },
     { dataField: "amount", text: "Amount" },
