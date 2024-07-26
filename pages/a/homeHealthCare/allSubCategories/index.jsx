@@ -1,9 +1,6 @@
-import BreadCrumb from "../../../components/BreadCrumb";
-import Table from "../../../components/table/Index";
+import BreadCrumb from "../../../../components/BreadCrumb";
+import Table from "../../../../components/table/Index";
 import Link from "next/link";
-
-const API_URL =
-  process.env.NEXT_PUBLIC_PROD_API_URL || "https://api-prana.prana24.in/api";
 
 const Index = () => {
   const columns = [
@@ -13,12 +10,23 @@ const Index = () => {
       text: "Id",
     },
     {
-      dataField: "first_name",
-      text: "First Name",
+      dataField: "name",
+      text: "Category Name",
     },
     {
-      dataField: "title",
-      text: "Title",
+      dataField: "null",
+      text: "Sub-Category Name",
+      type: "render",
+      render: (item) => {
+        if (item?.parent) {
+          return (
+            <Link href={`/a/homeHealthCare/${item?.parent?.uuid}`}>
+              <a className="text-dark">{item?.parent?.name}</a>
+            </Link>
+          );
+        }
+        return "";
+      },
     },
     {
       dataField: "createdAt",
@@ -36,16 +44,9 @@ const Index = () => {
       type: "render",
       render: (item) => (
         <div>
-          <Link href={`/a/doctors/${item.uuid}`}>
+          <Link href={`/a/homeHealthCare/${item.uuid}`}>
             <a className="btn btn-dark btn-sm">View Details</a>
           </Link>
-          {/* <a
-            className="btn btn-dark btn-sm"
-            style={{ marginLeft: "10px" }}
-            onClick={() => handleApprove(item.id)}
-          >
-            Approve
-          </a> */}
         </div>
       ),
     },
@@ -53,8 +54,8 @@ const Index = () => {
 
   const buttons = [
     {
-      text: "Add Doctor",
-      url: "/a/doctors/create",
+      text: "Add HomeHealth-Care Category",
+      url: "/a/homeHealthCare/addCategories",
       color: "dark",
       type: "button",
       size: "sm",
@@ -66,15 +67,18 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Doctors", url: "/a/doctors" },
+          {
+            text: "HealthCare Categories",
+            url: "/a/homeHealthCare/addCategories",
+          },
         ]}
       />
 
       <Table
         columns={columns}
-        url="/doctor"
+        url="/filterds/table"
         buttons={buttons}
-        title="Doctors"
+        title="Categories"
       />
     </div>
   );

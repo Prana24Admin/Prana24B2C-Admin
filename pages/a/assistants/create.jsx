@@ -23,82 +23,18 @@ const Doctor = ({ organizations }) => {
     //first_name
     {
       name: "first_name",
-      label: "First Name",
+      label: "Hospital Name",
       type: "text",
-      placeholder: "Enter first name",
-      value: "",
-      customClass: "col-6",
-    },
-    //last_name
-    {
-      name: "last_name",
-      label: "Last Name",
-      type: "text",
-      placeholder: "Enter last name",
-      value: "",
-      customClass: "col-6",
-    },
-    //email
-    {
-      name: "email",
-      label: "Email",
-      type: "email",
-      placeholder: "Enter email",
-      value: "",
-      customClass: "col-6",
-    },
-    //phone_ext
-    {
-      name: "phone_ext",
-      label: "Phone Ext",
-      type: "text",
-      placeholder: "Enter phone ext",
+      placeholder: "Enter Hospital name",
       value: "",
       customClass: "col-6",
     },
     //phone_number
     {
       name: "phone_number",
-      label: "Phone Number",
+      label: "Telephone Number",
       type: "Number",
-      placeholder: "Enter phone number",
-      value: "",
-      customClass: "col-6",
-    },
-    //password
-    {
-      name: "password",
-      label: "Password",
-      type: "password",
-      placeholder: "Enter password",
-      value: "",
-      customClass: "col-6",
-    },
-    //title
-    {
-      name: "title",
-      label: "Title",
-      type: "text",
-      placeholder: "Enter title",
-      value: "",
-      customClass: "col-6",
-    },
-    {
-      name: "organization_id",
-      label: "Organization",
-      type: "select",
-      placeholder: "Select organization",
-      value: "",
-      options: organizations,
-      customClass: "col-6",
-    },
-
-    //gender
-    {
-      name: "gender",
-      label: "Gender",
-      type: "text",
-      placeholder: "Enter Gender",
+      placeholder: "Enter Telephone number",
       value: "",
       customClass: "col-6",
     },
@@ -110,16 +46,16 @@ const Doctor = ({ organizations }) => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Doctors", url: "/a/doctors" },
+          { text: "Assistants", url: "/a/assistants" },
         ]}
       />
       <Form
         values={values}
         schema={schema}
         isMultiPart={false}
-        redirectUrl="/a/doctors"
+        redirectUrl="/a/assistants"
         api={{
-          update: { method: "post", url: `/doctor` },
+          update: { method: "post", url: `/assistants` },
         }}
       />
     </div>

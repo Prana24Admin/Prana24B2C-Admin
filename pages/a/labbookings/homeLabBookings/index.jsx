@@ -1,5 +1,5 @@
-import BreadCrumb from "../../../components/BreadCrumb";
-import Table from "../../../components/table/Index";
+import BreadCrumb from "../../../../components/BreadCrumb";
+import Table from "../../../../components/table/Index";
 import Link from "next/link";
 
 const Index = () => {
@@ -10,15 +10,22 @@ const Index = () => {
     },
 
     { dataField: "lab_order_id", text: "Order ID" },
-    { dataField: "total_amount", text: "Total Amount" },
+    { dataField: "lab_order_id", text: "Clinic Name" },
+    { dataField: "total_amount", text: "Phone Number" },
+    { dataField: "total_amount", text: "Address" },
     {
       dataField: "createdAt",
-      text: "Created At",
+      text: "Visit Date",
       type: "datetime",
     },
     {
       dataField: "updatedAt",
-      text: "Updated At",
+      text: "Viewed",
+      type: "datetime",
+    },
+    {
+      dataField: "updatedAt",
+      text: "Status",
       type: "datetime",
     },
     {
@@ -37,8 +44,8 @@ const Index = () => {
 
   const buttons = [
     {
-      text: "Add Lab Booking",
-      url: "/a/labbookings/create",
+      text: "Add Home Lab Booking",
+      url: "/a/labbookings/homeLabBookings/create",
       color: "dark",
       type: "button",
       size: "sm",

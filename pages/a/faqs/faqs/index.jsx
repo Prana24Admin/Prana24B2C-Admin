@@ -1,5 +1,5 @@
-import BreadCrumb from "../../../components/BreadCrumb";
-import Table from "../../../components/table/Index";
+import BreadCrumb from "../../../../components/BreadCrumb";
+import Table from "../../../../components/table/Index";
 import Link from "next/link";
 
 const API_URL =
@@ -7,28 +7,18 @@ const API_URL =
 
 const Index = () => {
   const columns = [
-    { dataField: "serial_number", text: "S.N." },
+    { dataField: "serial_number", text: "Question" },
     {
-      dataField: "uuid",
-      text: "Id",
+      dataField: "name",
+      text: "Answer",
     },
     {
-      dataField: "first_name",
-      text: "First Name",
-    },
-    {
-      dataField: "title",
-      text: "Title",
-    },
-    {
-      dataField: "createdAt",
-      text: "Created At",
-      type: "datetime",
+      dataField: "updatedAt",
+      text: "Faq Category",
     },
     {
       dataField: "updatedAt",
       text: "Updated At",
-      type: "datetime",
     },
     {
       dataField: null,
@@ -53,8 +43,8 @@ const Index = () => {
 
   const buttons = [
     {
-      text: "Add Doctor",
-      url: "/a/doctors/create",
+      text: "Add FAQS",
+      url: "/a/faqs/faqs/create",
       color: "dark",
       type: "button",
       size: "sm",
@@ -66,16 +56,11 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Doctors", url: "/a/doctors" },
+          { text: "Faqs", url: "/a/faqs" },
         ]}
       />
 
-      <Table
-        columns={columns}
-        url="/doctor"
-        buttons={buttons}
-        title="Doctors"
-      />
+      <Table columns={columns} url="/faqs" buttons={buttons} title="Doctors" />
     </div>
   );
 };

@@ -1,5 +1,5 @@
-import BreadCrumb from "../../../components/BreadCrumb";
-import Table from "../../../components/table/Index";
+import BreadCrumb from "../../../../components/BreadCrumb";
+import Table from "../../../../components/table/Index";
 import Link from "next/link";
 
 const API_URL =
@@ -7,28 +7,26 @@ const API_URL =
 
 const Index = () => {
   const columns = [
-    { dataField: "serial_number", text: "S.N." },
+    { dataField: "amount", text: "Name" },
     {
-      dataField: "uuid",
-      text: "Id",
+      dataField: "description",
+      text: "Balance",
     },
     {
-      dataField: "first_name",
-      text: "First Name",
+      dataField: "name",
+      text: "Currency",
     },
     {
-      dataField: "title",
-      text: "Title",
+      dataField: "name",
+      text: "Customer",
     },
     {
-      dataField: "createdAt",
-      text: "Created At",
-      type: "datetime",
+      dataField: "name",
+      text: "Enabled",
     },
     {
-      dataField: "updatedAt",
+      dataField: "name",
       text: "Updated At",
-      type: "datetime",
     },
     {
       dataField: null,
@@ -36,16 +34,16 @@ const Index = () => {
       type: "render",
       render: (item) => (
         <div>
-          <Link href={`/a/doctors/${item.uuid}`}>
+          <Link href={`/a/paymentsStatuses/${item.uuid}`}>
             <a className="btn btn-dark btn-sm">View Details</a>
           </Link>
           {/* <a
-            className="btn btn-dark btn-sm"
-            style={{ marginLeft: "10px" }}
-            onClick={() => handleApprove(item.id)}
-          >
-            Approve
-          </a> */}
+                className="btn btn-dark btn-sm"
+                style={{ marginLeft: "10px" }}
+                onClick={() => handleApprove(item.id)}
+              >
+                Approve
+              </a> */}
         </div>
       ),
     },
@@ -53,8 +51,8 @@ const Index = () => {
 
   const buttons = [
     {
-      text: "Add Doctor",
-      url: "/a/doctors/create",
+      text: "Add wallet list",
+      url: "/a/wallet/list/create",
       color: "dark",
       type: "button",
       size: "sm",
@@ -66,15 +64,15 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Doctors", url: "/a/doctors" },
+          { text: "Wallet List", url: "/a/wallet/list" },
         ]}
       />
 
       <Table
         columns={columns}
-        url="/doctor"
+        url="/walletList"
         buttons={buttons}
-        title="Doctors"
+        title="walletsList"
       />
     </div>
   );
