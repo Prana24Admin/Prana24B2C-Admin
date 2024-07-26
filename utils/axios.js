@@ -4,7 +4,8 @@ import { getCookie } from "cookies-next";
 
 const instance = axios.create();
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+// const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = "https://api-prana.prana24.in/api";
 
 // add baseURL to axios
 instance.defaults.baseURL = API_URL;

@@ -1,5 +1,5 @@
-import BreadCrumb from "../../../components/BreadCrumb";
-import Table from "../../../components/table/Index";
+import BreadCrumb from "../../../../components/BreadCrumb";
+import Table from "../../../../components/table/Index";
 import Link from "next/link";
 
 const API_URL =
@@ -9,26 +9,24 @@ const Index = () => {
   const columns = [
     { dataField: "serial_number", text: "S.N." },
     {
-      dataField: "uuid",
-      text: "Id",
+      dataField: "name",
+      text: "Review",
     },
     {
-      dataField: "first_name",
-      text: "First Name",
+      dataField: "name",
+      text: "Rate",
     },
     {
-      dataField: "title",
-      text: "Title",
+      dataField: "name",
+      text: "User",
     },
     {
-      dataField: "createdAt",
-      text: "Created At",
-      type: "datetime",
+      dataField: "name",
+      text: "Doctor",
     },
     {
-      dataField: "updatedAt",
+      dataField: "name",
       text: "Updated At",
-      type: "datetime",
     },
     {
       dataField: null,
@@ -36,7 +34,7 @@ const Index = () => {
       type: "render",
       render: (item) => (
         <div>
-          <Link href={`/a/doctors/${item.uuid}`}>
+          <Link href={`/a/doctors/appointments/${item.id}`}>
             <a className="btn btn-dark btn-sm">View Details</a>
           </Link>
           {/* <a
@@ -52,13 +50,13 @@ const Index = () => {
   ];
 
   const buttons = [
-    {
-      text: "Add Doctor",
-      url: "/a/doctors/create",
-      color: "dark",
-      type: "button",
-      size: "sm",
-    },
+    // {
+    //   text: "Add Doctor Appointment",
+    //   url: "/a/doctors/doctorAppointment/create",
+    //   color: "dark",
+    //   type: "button",
+    //   size: "sm",
+    // },
   ];
 
   return (
@@ -66,13 +64,13 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Doctors", url: "/a/doctors" },
+          { text: "Doctor Reviews", url: "/a/doctors/reviews" },
         ]}
       />
 
       <Table
         columns={columns}
-        url="/doctor"
+        url="/doctor/reviews"
         buttons={buttons}
         title="Doctors"
       />

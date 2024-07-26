@@ -2,34 +2,41 @@ import BreadCrumb from "../../../components/BreadCrumb";
 import Table from "../../../components/table/Index";
 import Link from "next/link";
 
+const API_URL =
+  process.env.NEXT_PUBLIC_PROD_API_URL || "https://api-prana.prana24.in/api";
+
 const Index = () => {
   const columns = [
+    { dataField: "serial_number", text: "S.N." },
     {
-      dataField: "serial_number",
-      text: "S.N.",
+      dataField: "first_name",
+      text: "Name",
+    },
+    {
+      dataField: "title",
+      text: "Address",
+    },
+    {
+      dataField: "title",
+      text: "Telephone Number",
     },
 
-    { dataField: "lab_order_id", text: "Order ID" },
-    { dataField: "total_amount", text: "Total Amount" },
-    {
-      dataField: "createdAt",
-      text: "Created At",
-      type: "datetime",
-    },
-    {
-      dataField: "updatedAt",
-      text: "Updated At",
-      type: "datetime",
-    },
     {
       dataField: null,
       text: "Actions",
       type: "render",
       render: (item) => (
         <div>
-          <Link href={`/a/labbookings/${item.uuid}`}>
+          <Link href={`/a/doctors/${item.uuid}`}>
             <a className="btn btn-dark btn-sm">View Details</a>
           </Link>
+          <a
+            className="btn btn-dark btn-sm"
+            style={{ marginLeft: "10px" }}
+            // onClick={() => handleApprove(item.id)}
+          >
+            Delete
+          </a>
         </div>
       ),
     },
@@ -37,8 +44,8 @@ const Index = () => {
 
   const buttons = [
     {
-      text: "Add Lab Booking",
-      url: "/a/labbookings/create",
+      text: "Add Hospitals",
+      url: "/a/hospitals/create",
       color: "dark",
       type: "button",
       size: "sm",
@@ -50,15 +57,15 @@ const Index = () => {
       <BreadCrumb
         items={[
           { text: "Dashboard", url: "/a/dashboard" },
-          { text: "Lab Bookings", url: "/a/labbookings" },
+          { text: "Hospitals", url: "/a/hospitals" },
         ]}
       />
 
       <Table
         columns={columns}
-        url="/orders/laborders/admin"
+        url="/hospitals"
         buttons={buttons}
-        title="Lab Bookings"
+        title="Hospitals"
       />
     </div>
   );
