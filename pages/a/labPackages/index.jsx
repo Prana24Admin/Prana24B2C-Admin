@@ -16,7 +16,7 @@ const Index = () => {
 
     {
       dataField: "createdAt",
-      text: "Shot Cut",
+      text: "created At",
     },
     {
       dataField: "updatedAt",

@@ -5,12 +5,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import SweetAlert from "../common/SweetAlert";
 import axios from "../../utils/axios";
 import Select from "react-select";
-
 import Router from "next/router";
 
 const Update = (props) => {
   const [data, setData] = useState({});
-
   const [sweetAlert, setSweetAlert] = useState({
     show: false,
     title: "",
@@ -31,6 +29,7 @@ const Update = (props) => {
     resolver: yupResolver(props.schema),
     defaultValues: data,
   });
+
   const handleSweetAlert = (show, title, text, type) => {
     setSweetAlert({
       show: show || false,
@@ -39,108 +38,86 @@ const Update = (props) => {
       type: type || sweetAlert.type,
     });
   };
+
   const onRedirect = (url) => {
     Router.push(url);
   };
-  const onSubmit = (e) => {
-    if (props.isMultiPart) {
-      let formData = new FormData();
 
-      props.values.forEach((value, index) => {
-        console.log(value);
-        if (value.name === "image") {
-          if (e[value.name]) {
-            if (value.isSingle) {
-              formData.append(value.name, e[value.name][0]);
-            } else {
-              formData.append(value.name, e[value.name]);
-            }
-          }
-        } else {
-          e[value.name] = e[value.name] === undefined ? null : e[value.name];
-          formData.append(value.name, e[value.name]);
-        }
-      });
-      axios({
+  const onSubmit = async (formData) => {
+    try {
+      const response = await axios({
         method: props.api.update.method,
         url: props.api.update.url,
         data: formData,
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      })
-        .then((res) => {
-          handleSweetAlert(
-            true,
-            "Success",
-            res?.data?.message || "updated Successfully",
-            "success"
-          );
-        })
-        .catch((err) => {
-          handleSweetAlert(
-            true,
-            "Error",
-            err?.response?.data?.message,
-            "error"
-          );
-        });
-    } else {
-      axios({
-        method: props.api.update.method,
-        url: props.api.update.url,
-        data: e,
-      })
-        .then((res) => {
-          handleSweetAlert(
-            true,
-            "Success",
-            res ? res.data?.message : "updated Successfully",
-            "success"
-          );
-        })
-        .catch((err) => {
-          console.log(err);
-          if (err.response.status === 400) {
-            handleSweetAlert(
-              true,
-              "Warning",
-              err.response.data.message,
-              "warning"
-            );
-          } else {
-            handleSweetAlert(
-              true,
-              "Error",
-              err?.response?.data?.message,
-              "error"
-            );
-          }
-        });
+      });
+      handleSweetAlert(
+        true,
+        "Success",
+        response.data?.message || "Updated Successfully",
+        "success"
+      );
+    } catch (err) {
+      const message = err.response?.data?.message || "An error occurred";
+      handleSweetAlert(
+        true,
+        err.response?.status === 400 ? "Warning" : "Error",
+        message,
+        err.response?.status === 400 ? "warning" : "error"
+      );
     }
+  };
+
+  const renderNestedFields = (obj, parentKey = "") => {
+    return Object.keys(obj).map((key, index) => {
+      const fieldKey = parentKey ? `${parentKey}.${key}` : key;
+      const value = obj[key];
+
+      if (typeof value === "object" && !Array.isArray(value)) {
+        return (
+          <div key={index} className="nested-fields">
+            <label>{key}</label>
+            {renderNestedFields(value, fieldKey)}
+          </div>
+        );
+      } else {
+        return (
+          <div className="form-group col-6 mt-2" key={index}>
+            <label id={`form-element-${fieldKey}`}>{key}</label>
+            <input
+              className="form-control"
+              id={`form-element-${fieldKey}`}
+              name={fieldKey}
+              type="text"
+              defaultValue={value}
+              {...register(fieldKey)}
+            />
+            <p className="text-danger mb-0">{errors[fieldKey]?.message}</p>
+          </div>
+        );
+      }
+    });
   };
 
   const getData = () => {
     axios
       .get(props.api.get.url)
       .then((res) => {
-        let response = res.data;
+        const response = res.data;
         setData(response);
-        let formData = {};
-        props.values.map((value) => {
+        const formData = {};
+        props.values.forEach((value) => {
           formData[value.name] = response[value.name];
         });
         reset(formData);
-        props.values.map((value) => {
-          if (value.defaultValue != "" && value.defaultValue != null) {
-            if (value.isMulit) {
+        props.values.forEach((value) => {
+          if (value.defaultValue !== "" && value.defaultValue !== null) {
+            if (value.isMulti) {
               setValue(
                 value.name,
                 value.defaultValue.map((row) => row.value)
               );
             } else {
               setValue(value.name, value.defaultValue.value);
-              console.log(value.name, value.defaultValue.value);
             }
           }
         });
@@ -149,8 +126,11 @@ const Update = (props) => {
         console.log(err);
       });
   };
+
   useEffect(() => {
-    props?.api?.get?.url && getData();
+    if (props.api.get.url) {
+      getData();
+    }
   }, []);
 
   return (
@@ -180,7 +160,6 @@ const Update = (props) => {
             value.type === "select" ? (
               <div className={`form-group col-6 mt-2`} key={index}>
                 <label id={`form-element-${value.name}`}>{value.label}</label>
-
                 <Controller
                   name={value.name}
                   control={control}
@@ -247,6 +226,26 @@ const Update = (props) => {
                     />
                   </div>
                 </div>
+                <p className="text-danger mb-0">
+                  {errors[value.name]?.message}
+                </p>
+              </div>
+            ) : value.type === "json" ? (
+              <div className={`form-group col-6 mt-2`} key={index}>
+                <label id={`form-element-${value.name}`}>{value.label}</label>
+                {typeof data[value.name] === "object" ? (
+                  renderNestedFields(data[value.name], value.name)
+                ) : (
+                  <textarea
+                    className="form-control"
+                    id={`form-element-${value.name}`}
+                    name={value.name}
+                    type={value.type}
+                    placeholder={value.placeholder}
+                    defaultValue={JSON.stringify(data[value.name], null, 2)}
+                    {...register(value.name)}
+                  />
+                )}
                 <p className="text-danger mb-0">
                   {errors[value.name]?.message}
                 </p>
