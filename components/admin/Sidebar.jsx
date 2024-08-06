@@ -137,22 +137,7 @@ const Sidebar = (props) => {
         },
       ],
     },
-    {
-      name: "Hospitals",
-      icon: "bx bx-plus-medical",
-      url: "",
-      show: false,
-      items: [
-        {
-          name: "Add Hospitals",
-          url: "/a/hospitals/create",
-        },
-        {
-          name: "All Hospitals",
-          url: "/a/hospitals",
-        },
-      ],
-    },
+
     {
       name: "Assistants",
       icon: "bx bx-group",

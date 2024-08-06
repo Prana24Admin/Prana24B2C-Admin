@@ -43,30 +43,84 @@ const Update = (props) => {
     Router.push(url);
   };
 
-  const onSubmit = async (formData) => {
-    try {
-      const response = await axios({
+  const onSubmit = (e) => {
+    if (props.isMultiPart) {
+      let formData = new FormData();
+
+      props.values.forEach((value, index) => {
+        console.log(value);
+        if (value.name === "image") {
+          if (e[value.name]) {
+            if (value.isSingle) {
+              formData.append(value.name, e[value.name][0]);
+            } else {
+              formData.append(value.name, e[value.name]);
+            }
+          }
+        } else {
+          e[value.name] = e[value.name] === undefined ? null : e[value.name];
+          formData.append(value.name, e[value.name]);
+        }
+      });
+
+      axios({
         method: props.api.update.method,
         url: props.api.update.url,
         data: formData,
-      });
-      handleSweetAlert(
-        true,
-        "Success",
-        response.data?.message || "Updated Successfully",
-        "success"
-      );
-    } catch (err) {
-      const message = err.response?.data?.message || "An error occurred";
-      handleSweetAlert(
-        true,
-        err.response?.status === 400 ? "Warning" : "Error",
-        message,
-        err.response?.status === 400 ? "warning" : "error"
-      );
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      })
+        .then((res) => {
+          handleSweetAlert(
+            true,
+            "Success",
+            res?.data?.message || "updated Successfully",
+            "success"
+          );
+        })
+        .catch((err) => {
+          handleSweetAlert(
+            true,
+            "Error",
+            err?.response?.data?.message,
+            "error"
+          );
+        });
+    } else {
+      axios({
+        method: props.api.update.method,
+        url: props.api.update.url,
+        data: e,
+      })
+        .then((res) => {
+          handleSweetAlert(
+            true,
+            "Success",
+            res ? res.data?.message : "updated Successfully",
+            "success"
+          );
+        })
+        .catch((err) => {
+          console.log(err);
+          if (err.response.status === 400) {
+            handleSweetAlert(
+              true,
+              "Warning",
+              err.response.data.message,
+              "warning"
+            );
+          } else {
+            handleSweetAlert(
+              true,
+              "Error",
+              err?.response?.data?.message,
+              "error"
+            );
+          }
+        });
     }
   };
-
   const renderNestedFields = (obj, parentKey = "") => {
     return Object.keys(obj).map((key, index) => {
       const fieldKey = parentKey ? `${parentKey}.${key}` : key;
@@ -102,9 +156,9 @@ const Update = (props) => {
     axios
       .get(props.api.get.url)
       .then((res) => {
-        const response = res.data;
+        let response = res.data;
         setData(response);
-        const formData = {};
+        let formData = {};
         props.values.forEach((value) => {
           formData[value.name] = response[value.name];
         });
@@ -128,9 +182,7 @@ const Update = (props) => {
   };
 
   useEffect(() => {
-    if (props.api.get.url) {
-      getData();
-    }
+    props?.api?.get?.url && getData();
   }, []);
 
   return (
