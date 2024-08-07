@@ -3,15 +3,27 @@ import axios from "../../utils/axios";
 const getOptions = async (tableName, label, val, isData) => {
   let selectListIdName = [];
   const arr = await axios.get(`/${tableName}`);
+
   let aLabel = label || "name";
   let aValue = val || "uuid";
   let data = isData ? arr.data : arr.data.data;
-  data.map((item) => {
-    selectListIdName.push({
-      value: item[aValue],
-      label: item[aLabel],
+  if (aLabel === "first_name" || aLabel === "last_name") {
+    aLabel = "name";
+    data.map((item) => {
+      selectListIdName.push({
+        value: item[aValue],
+        label: `${item.first_name} ${item.last_name}`,
+      });
     });
-  });
+  } else {
+    data.map((item) => {
+      selectListIdName.push({
+        value: item[aValue],
+        label: item[aLabel],
+      });
+    });
+  }
+
   return selectListIdName;
 };
 const getDefaultValue = async (tableName, parent_name, id, label, val) => {

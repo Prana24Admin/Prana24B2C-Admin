@@ -9,12 +9,26 @@ const Index = () => {
   const columns = [
     { dataField: "serial_number", text: "S.N." },
     {
+      dataField: "uuid",
+      text: "uuid",
+    },
+    {
       dataField: "first_name",
       text: "Name",
     },
     {
-      dataField: "title",
-      text: "Telephone Number",
+      dataField: "email",
+      text: "Email",
+    },
+    //phone_ext
+    {
+      dataField: "phone_ext",
+      text: "Phone Ext",
+    },
+
+    {
+      dataField: "phone_number",
+      text: "Phone Number",
     },
 
     {
@@ -23,7 +37,7 @@ const Index = () => {
       type: "render",
       render: (item) => (
         <div>
-          <Link href={`/a/assistants/${item.id}`}>
+          <Link href={`/a/assistants/${item.uuid}`}>
             <a className="btn btn-dark btn-sm">View Details</a>
           </Link>
           <a
@@ -59,7 +73,7 @@ const Index = () => {
 
       <Table
         columns={columns}
-        url="/assistants"
+        url="/doctor/assistant"
         buttons={buttons}
         title="Assistants"
       />

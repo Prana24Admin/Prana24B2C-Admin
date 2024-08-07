@@ -3,9 +3,14 @@ import * as Yup from "yup";
 
 import BreadCrumb from "../../../components/BreadCrumb";
 import Form from "../../../components/form/update";
-import { getOptions } from "../../../helpers/common/dropdownHelper";
+import {
+  getOptions,
+  getDefaultValue,
+} from "../../../helpers/common/dropdownHelper";
 
-const Assistant = ({ Doctors }) => {
+const Assistant = ({ options }) => {
+  const router = useRouter();
+  const { id } = router.query;
   const schema = Yup.object().shape({
     first_name: Yup.string().required("First Name is required"),
     last_name: Yup.string().required("Last Name is required"),
@@ -73,7 +78,7 @@ const Assistant = ({ Doctors }) => {
       type: "select",
       placeholder: "Select Doctor",
       value: "",
-      options: Doctors,
+      options: options,
     },
   ];
 
@@ -86,26 +91,30 @@ const Assistant = ({ Doctors }) => {
           { text: "Assistants", url: "/a/assistants" },
         ]}
       />
-      <Form
-        values={values}
-        schema={schema}
-        isMultiPart={false}
-        redirectUrl="/a/assistants"
-        api={{
-          update: { method: "post", url: `/doctor/assistant` },
-        }}
-      />
+      {id != undefined && (
+        <Form
+          values={values}
+          schema={schema}
+          isMultiPart={true}
+          api={{
+            get: { method: "get", url: `/doctor/assistant/${id}` },
+            update: { method: "patch", url: `/doctor/assistant/${id}` },
+          }}
+        />
+      )}
     </div>
   );
 };
 export async function getServerSideProps(context) {
+  const { id } = context.query;
+
   const [options] = await Promise.all([
     await getOptions("doctor", "first_name", "uuid", false),
   ]);
 
   return {
     props: {
-      Doctors: options,
+      options: options,
     },
   };
 }
