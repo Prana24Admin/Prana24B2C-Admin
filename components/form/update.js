@@ -157,6 +157,7 @@ const Update = (props) => {
       .get(props.api.get.url)
       .then((res) => {
         let response = res.data;
+        console.log(response);
         setData(response);
         let formData = {};
         props.values.forEach((value) => {

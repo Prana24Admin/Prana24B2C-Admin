@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import * as Yup from "yup";
-
 import BreadCrumb from "../../../components/BreadCrumb";
 import Form from "../../../components/form/update";
 import {
@@ -8,15 +7,13 @@ import {
   getDefaultValue,
 } from "../../../helpers/common/dropdownHelper";
 
-const Assistant = ({ options }) => {
+const Assistant = () => {
   const router = useRouter();
   const { id } = router.query;
-  const schema = Yup.object().shape({
-    first_name: Yup.string().required("First Name is required"),
-    last_name: Yup.string().required("Last Name is required"),
-    email: Yup.string().required("Email is required"),
-    password: Yup.string().required("Password is required"),
 
+  const schema = Yup.object().shape({
+    first_name: Yup.string().required("first Name is required"),
+    email: Yup.string().required("Email is required"),
     phone_ext: Yup.string().required("Phone Ext is required"),
     phone_number: Yup.string().required("Phone Number is required"),
   });
@@ -27,58 +24,45 @@ const Assistant = ({ options }) => {
       name: "first_name",
       label: "First Name",
       type: "text",
-      placeholder: "Enter First Name",
+      placeholder: "Enter Assistant first name",
       value: "",
-    },
-    //last_name
-    {
-      name: "last_name",
-      label: "Last Name",
-      type: "text",
-      placeholder: "Enter Last Name",
-      value: "",
+      customClass: "col-12",
     },
     //email
     {
       name: "email",
       label: "Email",
       type: "email",
-      placeholder: "Enter Email",
+      placeholder: "Enter email",
       value: "",
-    },
-    //password
-    {
-      name: "password",
-      label: "Password",
-      type: "password",
-      placeholder: "Enter Password",
-      value: "",
+      customClass: "col-12",
     },
     //phone_ext
     {
       name: "phone_ext",
       label: "Phone Ext",
       type: "text",
-      placeholder: "Enter Phone Ext",
+      placeholder: "Enter phone ext",
       value: "",
+      customClass: "col-12",
     },
+
     //phone_number
     {
       name: "phone_number",
       label: "Phone Number",
-      type: "text",
-      placeholder: "Enter Phone Number",
+      type: "Number",
+      placeholder: "Enter phone number",
       value: "",
+      customClass: "col-12",
     },
-
     //doctor_id
     {
       name: "doctor_id",
       label: "Doctor",
-      type: "select",
-      placeholder: "Select Doctor",
+      type: "text",
+      placeholder: "Select doctor",
       value: "",
-      options: options,
     },
   ];
 
@@ -105,18 +89,6 @@ const Assistant = ({ options }) => {
     </div>
   );
 };
-export async function getServerSideProps(context) {
-  const { id } = context.query;
 
-  const [options] = await Promise.all([
-    await getOptions("doctor", "first_name", "uuid", false),
-  ]);
-
-  return {
-    props: {
-      options: options,
-    },
-  };
-}
 Assistant.layout = "Admin";
 export default Assistant;
