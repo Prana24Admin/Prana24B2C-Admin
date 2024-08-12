@@ -5,19 +5,25 @@ import Link from "next/link";
 const Index = () => {
   const columns = [
     { dataField: "serial_number", text: "S.N." },
-    {
-      dataField: "uuid",
-      text: "Id",
-    },
+    // {
+    //   dataField: "uuid",
+    //   text: "Id",
+    // },
     {
       dataField: "name",
       text: "Name",
     },
-
     {
-      dataField: "createdAt",
-      text: "Created At",
-      type: "datetime",
+      dataField: "lab_code",
+      text: "Lab Code",
+    },
+    {
+      dataField: "phone_number",
+      text: "Phone Number",
+    },
+    {
+      dataField: "status",
+      text: "Status",
     },
     {
       dataField: "updatedAt",

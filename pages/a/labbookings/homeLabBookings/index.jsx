@@ -10,7 +10,7 @@ const Index = () => {
     },
 
     { dataField: "lab_order_id", text: "Order ID" },
-    { dataField: "lab_order_id", text: "Clinic Name" },
+    { dataField: "lab_order_id", text: "Lab Name" },
     { dataField: "total_amount", text: "Phone Number" },
     { dataField: "total_amount", text: "Address" },
     {

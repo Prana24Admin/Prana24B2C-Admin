@@ -24,7 +24,7 @@ const Organization = ({ organizations }) => {
       type: "text",
       placeholder: "Enter Organization name",
       value: "",
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
 
     //website
@@ -34,7 +34,7 @@ const Organization = ({ organizations }) => {
       type: "text",
       placeholder: "Enter Organization website",
       value: "",
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
     //address
     {
@@ -43,7 +43,7 @@ const Organization = ({ organizations }) => {
       type: "text",
       placeholder: "Enter Organization address",
       value: "",
-      customClass: "col-12",
+      customClass: "col-md-6 col-12",
     },
     //email
     {
@@ -52,16 +52,7 @@ const Organization = ({ organizations }) => {
       type: "email",
       placeholder: "Enter email",
       value: "",
-      customClass: "col-12",
-    },
-    //phone_ext
-    {
-      name: "phone_ext",
-      label: "Phone Ext",
-      type: "text",
-      placeholder: "Enter phone ext",
-      value: "",
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
     //phone_number
     {
@@ -70,7 +61,7 @@ const Organization = ({ organizations }) => {
       type: "Number",
       placeholder: "Enter phone number",
       value: "",
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
 
     {
@@ -80,7 +71,7 @@ const Organization = ({ organizations }) => {
       placeholder: "Select organization",
       value: "",
       options: organizations,
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
   ];
 

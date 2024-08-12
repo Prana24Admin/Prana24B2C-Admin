@@ -35,7 +35,7 @@ const Lab = () => {
     //website
     {
       name: "website",
-      label: "Short Cut",
+      label: "Lab Code",
       type: "text",
       placeholder: "Enter Lab Package Shortcut",
       value: "",

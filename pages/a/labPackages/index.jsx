@@ -6,17 +6,20 @@ const Index = () => {
   const columns = [
     { dataField: "serial_number", text: "ID" },
     {
-      dataField: "uuid",
-      text: "Name",
-    },
-    {
       dataField: "name",
       text: "Name",
     },
-
     {
-      dataField: "createdAt",
-      text: "Shot Cut",
+      dataField: "package",
+      text: "Lab Code",
+    },
+    {
+      dataField: "phone_number",
+      text: "Phone Number",
+    },
+    {
+      dataField: "website",
+      text: "Site",
     },
     {
       dataField: "updatedAt",

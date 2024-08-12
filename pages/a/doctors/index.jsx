@@ -9,10 +9,6 @@ const Index = () => {
   const columns = [
     { dataField: "serial_number", text: "S.N." },
     {
-      dataField: "uuid",
-      text: "Id",
-    },
-    {
       dataField: "first_name",
       text: "First Name",
     },
@@ -21,14 +17,20 @@ const Index = () => {
       text: "Title",
     },
     {
-      dataField: "createdAt",
-      text: "Created At",
-      type: "datetime",
+      dataField: "Clinic Names",
+      text: "Clinic Names",
     },
     {
-      dataField: "updatedAt",
-      text: "Updated At",
-      type: "datetime",
+      dataField: "specialization",
+      text: "Specialization",
+    },
+    {
+      dataField: "phone_number",
+      text: "Mobile",
+    },
+    {
+      dataField: "status",
+      text: "Status",
     },
     {
       dataField: null,
@@ -39,13 +41,20 @@ const Index = () => {
           <Link href={`/a/doctors/${item.uuid}`}>
             <a className="btn btn-dark btn-sm">View Details</a>
           </Link>
-          {/* <a
+          <a
             className="btn btn-dark btn-sm"
             style={{ marginLeft: "10px" }}
             onClick={() => handleApprove(item.id)}
           >
             Approve
-          </a> */}
+          </a>
+          <a
+            className="btn btn-dark btn-sm"
+            style={{ marginLeft: "10px" }}
+            onClick={() => handleApprove(item.id)}
+          >
+            Deny
+          </a>
         </div>
       ),
     },

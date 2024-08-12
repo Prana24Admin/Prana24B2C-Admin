@@ -25,7 +25,7 @@ const Brand = ({ defaultValue, options }) => {
       type: "text",
       placeholder: "Enter brand name",
       value: "",
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "description",
@@ -33,7 +33,7 @@ const Brand = ({ defaultValue, options }) => {
       type: "text",
       placeholder: "Enter brand description",
       value: "",
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "context",
@@ -41,6 +41,7 @@ const Brand = ({ defaultValue, options }) => {
       type: "textarea",
       placeholder: "Enter brand context",
       value: "",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "parent_id",
@@ -50,6 +51,7 @@ const Brand = ({ defaultValue, options }) => {
       value: "",
       options: options,
       defaultValue: defaultValue,
+      customClass: "col-md-3 col-12",
     },
     {
       name: "image",

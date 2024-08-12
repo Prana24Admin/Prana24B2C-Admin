@@ -20,7 +20,7 @@ const Product = ({ filters, brands }) => {
       type: "text",
       placeholder: "Enter Product name",
       value: "",
-      customClass: "col-md-6 col-12",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "description",
@@ -28,7 +28,7 @@ const Product = ({ filters, brands }) => {
       type: "text",
       placeholder: "Enter Product description",
       value: "",
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "product_id",
@@ -36,7 +36,7 @@ const Product = ({ filters, brands }) => {
       type: "text",
       placeholder: "Enter Product ID",
       value: "",
-      customClass: "col-md-6 col-12",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "price",
@@ -44,7 +44,7 @@ const Product = ({ filters, brands }) => {
       type: "number",
       placeholder: "Enter Product price",
       value: "",
-      customClass: "col-md-6 col-12",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "discount",
@@ -52,7 +52,7 @@ const Product = ({ filters, brands }) => {
       type: "number",
       placeholder: "Enter Product discount",
       value: "",
-      customClass: "col-md-6 col-12",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "igst",
@@ -60,7 +60,7 @@ const Product = ({ filters, brands }) => {
       type: "number",
       placeholder: "Enter Product IGST",
       value: "",
-      customClass: "col-md-6 col-12",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "context",
@@ -68,6 +68,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product context",
       value: "",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "hsn",
@@ -75,7 +76,7 @@ const Product = ({ filters, brands }) => {
       type: "text",
       placeholder: "Enter Product HSN",
       value: "",
-      customClass: "col-md-6 col-12",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "quantity",
@@ -83,7 +84,7 @@ const Product = ({ filters, brands }) => {
       type: "number",
       placeholder: "Enter Product quantity",
       value: "",
-      customClass: "col-md-6 col-12",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "image",
@@ -126,6 +127,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product usage",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "about_salt",
@@ -133,6 +135,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product about salt",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "mechanism_of_action",
@@ -140,6 +143,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product mechanism of action",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "pharmacokinets",
@@ -147,6 +151,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product pharmacokinets",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "onset_of_action",
@@ -154,6 +159,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product onset of action",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "duration_of_action",
@@ -161,6 +167,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product duration of action",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "half_life",
@@ -168,6 +175,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product half life",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "side_effects",
@@ -175,6 +183,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product side effects",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "contra_indications",
@@ -182,6 +191,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product contra indications",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "special_precautions",
@@ -189,6 +199,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product special precautions",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "pregnancy_related_information",
@@ -196,6 +207,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product pregnancy related information",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "product_alchol_interaction",
@@ -203,6 +215,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product product alchol interaction",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "old_age_related_information",
@@ -210,14 +223,15 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product old age related information",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "breast_feeding_related_information",
-
       label: "Breast Feeding Related Information",
       type: "textarea",
       placeholder: "Enter Product breast feeding related information",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "child_related_information",
@@ -225,6 +239,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product child related information",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "indications",
@@ -232,6 +247,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product indications",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "interactions",
@@ -239,6 +255,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product interactions",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "typical_dosage",
@@ -246,6 +263,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product typical dosage",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "storage_requirements",
@@ -253,6 +271,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product storage requirements",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "effects_mixed_dosage",
@@ -260,6 +279,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product effects mixed dosage",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "effects_overdose",
@@ -267,6 +287,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product effects overdose",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "expertise_advice",
@@ -274,6 +295,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product expertise advice",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "how_to_use",
@@ -281,6 +303,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product how to use",
       value: "",
+      customClass: "col-md-6 col-12",
     },
     {
       name: "faqs",
@@ -288,6 +311,7 @@ const Product = ({ filters, brands }) => {
       type: "textarea",
       placeholder: "Enter Product faqs",
       value: "",
+      customClass: "col-md-6 col-12",
     },
   ];
 
