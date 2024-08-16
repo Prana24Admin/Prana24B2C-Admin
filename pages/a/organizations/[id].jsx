@@ -26,7 +26,7 @@ const Organization = ({ defaultValue, organizations }) => {
       type: "text",
       placeholder: "Enter Organization name",
       value: "",
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
     //website
     {
@@ -35,7 +35,7 @@ const Organization = ({ defaultValue, organizations }) => {
       type: "text",
       placeholder: "Enter Organization website",
       value: "",
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
     //address
     {
@@ -44,7 +44,7 @@ const Organization = ({ defaultValue, organizations }) => {
       type: "text",
       placeholder: "Enter Organization address",
       value: "",
-      customClass: "col-12",
+      customClass: "col-md-6 col-12",
     },
     //email
     {
@@ -53,16 +53,7 @@ const Organization = ({ defaultValue, organizations }) => {
       type: "email",
       placeholder: "Enter email",
       value: "",
-      customClass: "col-12",
-    },
-    //phone_ext
-    {
-      name: "phone_ext",
-      label: "Phone Ext",
-      type: "text",
-      placeholder: "Enter phone ext",
-      value: "",
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
     //phone_number
     {
@@ -71,16 +62,7 @@ const Organization = ({ defaultValue, organizations }) => {
       type: "Number",
       placeholder: "Enter phone number",
       value: "",
-      customClass: "col-12",
-    },
-    //image
-    {
-      name: "image",
-      label: "Image",
-      type: "file",
-      placeholder: "Upload image",
-      value: "",
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
 
     {
@@ -91,7 +73,7 @@ const Organization = ({ defaultValue, organizations }) => {
       value: "",
       defaultValue: defaultValue,
       options: organizations,
-      customClass: "col-12",
+      customClass: "col-md-6 col-12",
     },
   ];
 

@@ -153,6 +153,8 @@ const Update = (props) => {
     props?.api?.get?.url && getData();
   }, []);
 
+  console.log("Data", data);
+
   return (
     <div>
       <SweetAlert

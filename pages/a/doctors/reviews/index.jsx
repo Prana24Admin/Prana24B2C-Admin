@@ -34,16 +34,37 @@ const Index = () => {
       type: "render",
       render: (item) => (
         <div>
-          <Link href={`/a/doctors/appointments/${item.id}`}>
+          {/* <Link href={`/a/doctors/appointments/${item.id}`}>
             <a className="btn btn-dark btn-sm">View Details</a>
-          </Link>
-          {/* <a
+          </Link> */}
+          <a
             className="btn btn-dark btn-sm"
             style={{ marginLeft: "10px" }}
-            onClick={() => handleApprove(item.id)}
+            // onClick={() => handleApprove(item.id)}
+          >
+            Edit
+          </a>
+          <a
+            className="btn btn-dark btn-sm"
+            style={{ marginLeft: "10px" }}
+            // onClick={() => handleApprove(item.id)}
           >
             Approve
-          </a> */}
+          </a>
+          <a
+            className="btn btn-dark btn-sm"
+            style={{ marginLeft: "10px" }}
+            // onClick={() => handleApprove(item.id)}
+          >
+            Reject
+          </a>
+          <a
+            className="btn btn-dark btn-sm"
+            style={{ marginLeft: "10px" }}
+            // onClick={() => handleApprove(item.id)}
+          >
+            Delete
+          </a>
         </div>
       ),
     },

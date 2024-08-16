@@ -18,7 +18,7 @@ const Category = ({ filters, types }) => {
       type: "text",
       placeholder: "Enter Category name",
       value: "",
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "type",
@@ -28,6 +28,7 @@ const Category = ({ filters, types }) => {
       defaultValue: null,
       value: "",
       options: types,
+      customClass: "col-md-3 col-12",
     },
     {
       name: "parent_id",
@@ -37,6 +38,7 @@ const Category = ({ filters, types }) => {
       defaultValue: null,
       value: "",
       options: filters,
+      customClass: "col-md-3 col-12",
     },
 
     {
@@ -46,6 +48,7 @@ const Category = ({ filters, types }) => {
       placeholder: "Upload Category image",
       value: "",
       isSingle: true,
+      customClass: "col-md-3 col-12",
     },
   ];
 

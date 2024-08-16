@@ -14,9 +14,9 @@ const Category = ({ filters, types }) => {
   const values = [
     {
       name: "user_id",
-      label: "Client Name",
+      label: "Lab Name",
       type: "text",
-      placeholder: "Enter Client Name",
+      placeholder: "Enter Lab Name",
       value: "",
       customClass: "col-6",
     },

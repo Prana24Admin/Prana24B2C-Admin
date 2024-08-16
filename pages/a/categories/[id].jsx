@@ -24,8 +24,7 @@ const Category = ({ filters, types, defaultValueFilter, defaultValueType }) => {
       type: "text",
       placeholder: "Enter category name",
       value: "",
-
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "type",
@@ -35,8 +34,7 @@ const Category = ({ filters, types, defaultValueFilter, defaultValueType }) => {
       value: "",
       defaultValue: defaultValueType,
       options: types,
-
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
 
     {
@@ -47,7 +45,7 @@ const Category = ({ filters, types, defaultValueFilter, defaultValueType }) => {
       defaultValue: defaultValueFilter,
       value: "",
       options: filters,
-      customClass: "col-12",
+      customClass: "col-md-3 col-12",
     },
     {
       name: "image",
@@ -56,6 +54,7 @@ const Category = ({ filters, types, defaultValueFilter, defaultValueType }) => {
       placeholder: "Enter categorie image",
       value: "",
       isSingle: true,
+      customClass: "col-md-3 col-12",
     },
   ];
 

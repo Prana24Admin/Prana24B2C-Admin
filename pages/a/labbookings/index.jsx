@@ -11,6 +11,7 @@ const Index = () => {
 
     { dataField: "lab_order_id", text: "Order ID" },
     { dataField: "total_amount", text: "Total Amount" },
+    { dataField: "status", text: "Status" },
     {
       dataField: "createdAt",
       text: "Created At",
